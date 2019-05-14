@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Table, Divider, Tag } from 'antd';
+import { Modal, Button } from 'antd';
 import $http from '../../request/api.js'
 export default class wallet extends Component {
     constructor(props) {
@@ -38,13 +39,24 @@ export default class wallet extends Component {
                         </span>
                     )
                 }
-            ]
+            ],
+            visible: false, // 控制弹框显示
         }
     }
     render() {
         return (
             <div>
                 <Table columns={this.state.columns} dataSource={this.state.data} />
+                <Modal
+                    title="Basic Modal"
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                >
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Modal>
             </div>
         )
     }
@@ -60,6 +72,16 @@ export default class wallet extends Component {
         console.log('删除')
     }
     edit = () => {
-        console.log('编辑')
+        this.setState({
+            visible: true
+        })
+    }
+    handleOk = () => {
+
+    }
+    handleCancel = () => {
+        this.setState({
+            visible: false
+        })
     }
 }

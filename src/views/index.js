@@ -38,7 +38,7 @@ export default class index extends Component {
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
                         <Header style={{ backgroundColor: '#eee' }}>Header</Header>
-                        <Content style={{ backgroundColor: '#fff', margin: 30 }}>{this.props.children}</Content>
+                        <Content style={{ backgroundColor: '#fff', padding: 30 }}>{this.props.children}</Content>
                     </Layout>
                 </Layout>
             </div>
