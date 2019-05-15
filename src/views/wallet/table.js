@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Table, Divider, Tag } from 'antd';
-import { Modal, Button } from 'antd';
+import { Modal, Button, message } from 'antd';
+import { Form, Icon, Input, Checkbox } from 'antd';
+import EditForm from './form.js'
 import $http from '../../request/api.js'
 export default class wallet extends Component {
     constructor(props) {
@@ -31,9 +33,9 @@ export default class wallet extends Component {
                 {
                     title: '操作',
                     key: 'action',
-                    render: () => (
+                    render: (text, record) => (
                         <span>
-                            <a onClick={this.edit}>编辑</a>
+                            <a onClick={() => { this.edit(record) }}>编辑</a>
                             <Divider type="vertical" />
                             <a onClick={this.delete}>删除</a>
                         </span>
@@ -41,26 +43,29 @@ export default class wallet extends Component {
                 }
             ],
             visible: false, // 控制弹框显示
+            id: null // 当前行id
         }
     }
     render() {
+        // const { getFieldDecorator } = this.props.form;
         return (
             <div>
-                <Table columns={this.state.columns} dataSource={this.state.data} />
+                <Table columns={this.state.columns} dataSource={this.state.data} rowKey={record => record.id} />
                 <Modal
                     title="Basic Modal"
                     visible={this.state.visible}
-                    onOk={this.handleOk}
+                    onOk={this.handleSubmit}
                     onCancel={this.handleCancel}
                 >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+                    <EditForm ref="form" onSubmit={this.handleSubmit} />
                 </Modal>
             </div>
         )
     }
     componentDidMount() {
+        this.getData()
+    }
+    getData = () => {
         $http.getData().then(res => {
             console.log(res)
             this.setState({
@@ -71,17 +76,36 @@ export default class wallet extends Component {
     delete = () => {
         console.log('删除')
     }
-    edit = () => {
+    edit = (record) => {
+        // console.log(record.id)
+        this.setState({
+            id: record.id
+        })
         this.setState({
             visible: true
         })
     }
-    handleOk = () => {
-
-    }
+    // handleOk = () => {
+    //     this.handleSubmit()
+    // }
     handleCancel = () => {
         this.setState({
             visible: false
         })
+    }
+    handleSubmit = () => {
+        this.refs.form.validateFields((err, values) => {
+            if (!err) {
+                console.log(values)
+                $http.editData(values, this.state.id).then(res => {
+                    console.log(res)
+                    this.setState({
+                        data: res.data.list,
+                        visible: false
+                    })
+                    message.success('修改成功');
+                })
+            }
+        });
     }
 }
