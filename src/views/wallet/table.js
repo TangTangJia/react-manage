@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Divider, Tag } from 'antd';
-import { Modal, Button, message } from 'antd';
-import { Form, Icon, Input, Checkbox } from 'antd';
+import { Modal, Button, message, Table, Divider } from 'antd';
 import EditForm from './form.js'
 import $http from '../../request/api.js'
 export default class wallet extends Component {
@@ -57,7 +55,7 @@ export default class wallet extends Component {
                     onOk={this.handleSubmit}
                     onCancel={this.handleCancel}
                 >
-                    <EditForm ref="form" onSubmit={this.handleSubmit} />
+                    <EditForm ref="form" />
                 </Modal>
             </div>
         )
@@ -74,7 +72,7 @@ export default class wallet extends Component {
         })
     }
     delete = () => {
-        console.log('删除')
+        message.success('假装删除');
     }
     edit = (record) => {
         // console.log(record.id)
@@ -92,6 +90,7 @@ export default class wallet extends Component {
         this.setState({
             visible: false
         })
+        this.refs.form.resetFields()
     }
     handleSubmit = () => {
         this.refs.form.validateFields((err, values) => {
@@ -104,6 +103,7 @@ export default class wallet extends Component {
                         visible: false
                     })
                     message.success('修改成功');
+                    this.refs.form.resetFields()
                 })
             }
         });

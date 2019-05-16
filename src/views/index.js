@@ -32,8 +32,12 @@ export default class index extends Component {
                                     </span>
                                 }
                             >
-                                <Menu.Item key="3"> <Link to="/wallet">表格</Link></Menu.Item>
+                                <Menu.Item key="1"> <Link to="/wallet">表格</Link></Menu.Item>
                             </SubMenu>
+                            <Menu.Item key="sub2">
+                                <Icon type="pie-chart" />
+                                <span> <Link to="/echarts">图表</Link></span>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
