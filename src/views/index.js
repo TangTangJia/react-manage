@@ -49,6 +49,12 @@ export default class index extends Component {
                                 }>
                                 <Menu.Item><Link to="/editor">富文本</Link></Menu.Item>
                             </SubMenu>
+                            <Menu.Item key="sub4">
+                                <Link to="/card">
+                                    <Icon type="file-text" />
+                                    <span>卡片</span>
+                                </Link>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
