@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import ReactEcharts from 'echarts-for-react';
+import { Divider } from 'antd';
+import Bar from './bar.js'
+import Line from './line.js'
 const option = {
     xAxis: {
         type: 'category',
@@ -13,11 +15,26 @@ const option = {
         type: 'bar'
     }]
 }
+const lineOption = {
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line'
+    }]
+}
 export default class echarts extends Component {
     render() {
         return (
             <div>
-                <ReactEcharts option={option} />
+                <Bar option={option} />
+                <Divider />
+                <Line option={lineOption} />
             </div>
         )
     }

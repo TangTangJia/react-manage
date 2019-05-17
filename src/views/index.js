@@ -17,10 +17,10 @@ export default class index extends Component {
                         left: 0,
                     }}>
                         <Menu
-                            onClick={this.handleClick}
+                            // onClick={this.handleClick}
                             style={{ width: 200 }}
-                            defaultSelectedKeys={['1']}
-                            defaultOpenKeys={['sub1']}
+                            // defaultSelectedKeys={['1']}
+                            // defaultOpenKeys={['sub1']}
                             mode="inline"
                         >
                             <SubMenu
@@ -35,9 +35,20 @@ export default class index extends Component {
                                 <Menu.Item key="1"> <Link to="/wallet">表格</Link></Menu.Item>
                             </SubMenu>
                             <Menu.Item key="sub2">
-                                <Icon type="pie-chart" />
-                                <span> <Link to="/echarts">图表</Link></span>
+                                <Link to="/echarts">
+                                    <Icon type="pie-chart" />
+                                    <span>图表</span>
+                                </Link>
                             </Menu.Item>
+                            <SubMenu key="sub3"
+                                title={
+                                    <span>
+                                        <Icon type="edit" />
+                                        <span>Navigation Two</span>
+                                    </span>
+                                }>
+                                <Menu.Item><Link to="/editor">富文本</Link></Menu.Item>
+                            </SubMenu>
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
