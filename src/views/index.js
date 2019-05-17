@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Avatar, Badge } from 'antd';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import route from '../route.js'
 const { Header, Sider, Content } = Layout;
@@ -32,7 +32,7 @@ export default class index extends Component {
                                     </span>
                                 }
                             >
-                                <Menu.Item key="1"> <Link to="/wallet">表格</Link></Menu.Item>
+                                <Menu.Item key="1"> <Link to="/table">表格</Link></Menu.Item>
                             </SubMenu>
                             <Menu.Item key="sub2">
                                 <Link to="/echarts">
@@ -55,10 +55,23 @@ export default class index extends Component {
                                     <span>卡片</span>
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item key="sub5">
+                                <Link to="/redux">
+                                    <Icon type="file-text" />
+                                    <span>Redux状态管理</span>
+                                </Link>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
-                        <Header style={{ backgroundColor: '#eee' }}>Header</Header>
+                        <Header style={{ backgroundColor: '#eee' }}>  <div>
+                            <span style={{ float: "right" }}>
+                                <Badge count={1}>
+                                    <Avatar shape="square" icon="user" />
+                                </Badge>
+                            </span>
+                        </div>
+                        </Header>
                         <Content style={{ backgroundColor: '#fff', padding: 30 }}>{this.props.children}</Content>
                     </Layout>
                 </Layout>
