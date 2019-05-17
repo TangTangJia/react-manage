@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Icon, Avatar, Badge } from 'antd';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import route from '../route.js'
-const { Header, Sider, Content } = Layout;
+import { Link } from 'react-router-dom'
+import Header from './header/header.js'
+const { Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 export default class index extends Component {
     render() {
         return (
@@ -64,14 +63,7 @@ export default class index extends Component {
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
-                        <Header style={{ backgroundColor: '#eee' }}>  <div>
-                            <span style={{ float: "right" }}>
-                                <Badge count={1}>
-                                    <Avatar shape="square" icon="user" />
-                                </Badge>
-                            </span>
-                        </div>
-                        </Header>
+                        <Header />
                         <Content style={{ backgroundColor: '#fff', padding: 30 }}>{this.props.children}</Content>
                     </Layout>
                 </Layout>

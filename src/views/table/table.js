@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, message, Table, Divider } from 'antd';
+import { Modal, message, Table, Divider } from 'antd';
 import EditForm from './form.js'
 import $http from '../../request/api.js'
 export default class wallet extends Component {
