@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Input } from 'antd';
 class form extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;

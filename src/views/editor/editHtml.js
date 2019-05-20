@@ -16,7 +16,7 @@ export default class editHtml extends Component {
             </div>
         )
     }
-    getContent = (content) => {
+    getContent = (content) => {  // 接收子组件数据
         console.log(content)
         this.setState({
             content: content

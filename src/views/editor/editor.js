@@ -25,7 +25,7 @@ export default class editor extends Component {
         this.setState({
             outputHTML: this.state.editorState.toHTML()
         }, () => {
-            this.props.getContent(this.state.outputHTML)
+            this.props.getContent(this.state.outputHTML) // 将数据传给父组件
         })
     }
 }

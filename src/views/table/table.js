@@ -90,13 +90,13 @@ export default class wallet extends Component {
         this.setState({
             visible: false
         })
-        this.refs.form.resetFields()
+        this.refs.form.resetFields() // 重置表单数据
     }
     handleSubmit = () => {
         this.refs.form.validateFields((err, values) => {
             if (!err) {
                 console.log(values)
-                $http.editData(values, this.state.id).then(res => {
+                $http.editData(values, this.state.id).then(res => { // 因为是模拟的数据 所以修改之后会返回修改后的数据数组 和前面的首次获取数据不是同一个接口
                     console.log(res)
                     this.setState({
                         data: res.data.list,
