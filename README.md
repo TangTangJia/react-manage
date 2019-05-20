@@ -6,3 +6,10 @@
 - redux的基本使用
 - antd相关组件的使用
 - mock.js模拟接口数据
+---
+### 运行项目
+npm i  
+
+npm start  
+
+npm run build (发布)
