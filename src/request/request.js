@@ -1,7 +1,6 @@
 import axios from 'axios'
 // import qs from 'qs'
 // axios 配置
-// let root = process.env.VUE_APP_API
 axios.defaults.timeout = 10000
 axios.defaults.baseURL = 'https://easy-mock.com/mock/5bd6a843bc9d684fc1f12b6e/test'
 // 添加请求拦截器

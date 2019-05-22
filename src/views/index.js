@@ -60,6 +60,12 @@ export default class index extends Component {
                                     <span>Redux状态管理</span>
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item key="sub6">
+                                <Link to="/hoc">
+                                    <Icon type="api" />
+                                    <span>高阶组件</span>
+                                </Link>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>

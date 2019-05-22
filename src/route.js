@@ -7,7 +7,7 @@ import EditHtml from './views/editor/editHtml.js'
 import Card from './views/card/card.js'
 import CardInfo from './views/card/cardInfo.js'
 import Status from './views/status/status.js'
-
+import Hoc from './views/hoc/index.js'
 export default class ROUTER extends Component {
     render() {
         return (
@@ -21,6 +21,7 @@ export default class ROUTER extends Component {
                             <Route path="/card" component={Card}></Route>
                             <Route path="/cardInfo/:id" component={CardInfo}></Route>
                             <Route path="/redux" component={Status}></Route>
+                            <Route path="/hoc" component={Hoc}></Route>
                         </Index>
                     </Route>
                 </Switch>
