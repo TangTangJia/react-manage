@@ -66,6 +66,12 @@ export default class index extends Component {
                                     <span>高阶组件</span>
                                 </Link>
                             </Menu.Item>
+                            <Menu.Item key="sub7">
+                                <Link to="/hooks">
+                                    <Icon type="api" />
+                                    <span>Hooks</span>
+                                </Link>
+                            </Menu.Item>
                         </Menu>
                     </Sider>
                     <Layout style={{ marginLeft: 200 }}>
